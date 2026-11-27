@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Renatti Group</title>
+<meta name="description" content="Custom websites and local search setup for small businesses in Dunellen, Green Brook and central New Jersey.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <div class="wrap">
+    <nav aria-label="Main">
+      <a class="brand" href="#top">The Renatti Group</a>
+      <ul>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#process">How it works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="hero" id="top">
+      <h1>Websites for local businesses.</h1>
+      <p class="tagline">Local shops, we've got your back.</p>
+      <p>We build simple, fast, custom websites for shops, trades and services in Dunellen, Green Brook and the towns around them, and make sure people searching nearby can find you.</p>
+      <a class="btn" href="#contact">Get a free quote</a>
+      <div class="rule" aria-hidden="true"></div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section id="services">
+  <div class="wrap">
+    <h2>What we do</h2>
+    <p class="lead">Three things that bring in customers, done properly and kept affordable.</p>
+    <div class="grid">
+      <article class="card">
+        <h3>Custom websites</h3>
+        <p>A clean site built around your business, with your hours, services, photos and a phone number people can tap. It works on phones first.</p>
+      </article>
+      <article class="card">
+        <h3>Google Business Profile</h3>
+        <p>We set up and tune the listing that shows on Google Maps, so you show up when someone nearby searches for what you sell.</p>
+      </article>
+      <article class="card">
+        <h3>Accessibility checks</h3>
+        <p>We test your site against WCAG standards and fix the problems, so every customer can use it and you lower your legal risk.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="process">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="lead">Short, clear, and no surprise bills.</p>
+    <ol class="steps">
+      <li><div><strong>Talk</strong><span>We learn what you do and who your customers are. Free, about 20 minutes.</span></div></li>
+      <li><div><strong>Draft</strong><span>You see a working draft of your site before you pay for anything beyond the quote.</span></div></li>
+      <li><div><strong>Launch</strong><span>We put it live, connect your domain and listing, and show you how to update it.</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about your site</h2>
+    <p class="lead">Tell us about your business and what you need. We reply within one business day.</p>
+    <form class="form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <label for="name">Name<input id="name" name="name" type="text" autocomplete="name" required></label>
+      <label for="email">Email<input id="email" name="email" type="email" autocomplete="email" required></label>
+      <label for="phone">Phone (optional)<input id="phone" name="phone" type="tel" autocomplete="tel"></label>
+      <label for="business">Business name (optional)<input id="business" name="business" type="text" autocomplete="organization"></label>
+      <label for="message">What do you need?<textarea id="message" name="message" required></textarea></label>
+      <div class="hp" aria-hidden="true"><label for="website">Leave this empty<input id="website" name="_gotcha" type="text" tabindex="-1" autocomplete="off"></label></div>
+      <p class="note">Please do not send passwords or payment details. If you give a phone number, you agree we may call or text you about your request. See our <a href="privacy.html">Privacy Policy</a>.</p>
+      <button type="submit">Send message</button>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+    </form>
+    <p class="note" style="margin-top:20px">Prefer email? <a class="mail" style="font-size:20px" href="mailto:renatti.group@gmail.com">renatti.group@gmail.com</a></p>
+  </div>
+</section>
+</main>
+
+<footer><div class="wrap">&copy; 2026 The Renatti Group &middot; Serving Dunellen, Green Brook and central New Jersey
+<div class="links"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Use</a><a href="accessibility.html">Accessibility</a></div></div></footer>
+
+<script>
+(function(){
+  var f=document.getElementById('contact-form'),s=document.getElementById('status');
+  if(!f)return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(f.action.indexOf('YOUR_FORM_ID')>-1){s.textContent='The form is not switched on yet. Please email renatti.group@gmail.com.';return;}
+    s.textContent='Sending...';
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(r.ok){f.reset();s.textContent='Thanks. We got your message and will reply within one business day.';}else{s.textContent='Something went wrong. Please email renatti.group@gmail.com.';}})
+      .catch(function(){s.textContent='Could not send. Please email renatti.group@gmail.com.';});
+  });
+})();
+</script>
+</body>
+</html>
